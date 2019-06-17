@@ -1,3 +1,5 @@
 *.pyc
 *.txt.pt
 .idea/
+
+ace-05-splits/

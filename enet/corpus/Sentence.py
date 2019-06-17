@@ -40,10 +40,14 @@ class Sentence:
         def assignEntityLabel(index, label):
             if index >= CUTOFF:
                 return
-            if len(entityLabel[index]) == 1 and entityLabel[index][0] == "O":
-                entityLabel[index][0] = pretty_str(label)
-            else:
-                entityLabel[index].append(pretty_str(label))
+            try:
+                if len(entityLabel[index]) == 1 and entityLabel[index][0] == "O":
+                    entityLabel[index][0] = pretty_str(label)
+                else:
+                    entityLabel[index].append(pretty_str(label))
+            except:
+                print('index :', index, ', entityLabel:', entityLabel)
+                print('assignEntityLabel index error')
 
         for entityJson in entitiesJsonList:
             start = entityJson["start"]
