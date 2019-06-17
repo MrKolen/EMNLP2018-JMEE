@@ -3,3 +3,5 @@
 .idea/
 
 ace-05-splits/
+venv/
+models/
