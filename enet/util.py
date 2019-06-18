@@ -170,6 +170,7 @@ def run_over_data(model, optimizer, data_iter, MAX_STEP, need_backward, tester, 
         all_events.extend(events)
 
         SEQ_LEN = words.size()[1]
+
         adjm = torch.stack([torch.sparse.FloatTensor(torch.LongTensor(adjmm[0]),
                                                      torch.FloatTensor(adjmm[1]),
                                                      torch.Size([hyps["gcn_et"], SEQ_LEN, SEQ_LEN])).to_dense() for

@@ -37,7 +37,7 @@ class Sentence:
 
         entityLabel = [["O"] for _ in range(self.length)]
 
-        def assignEntityLabel(index, label):
+        def assignEntityLabel(index, label, entityJson):
             if index >= CUTOFF:
                 return
             try:
@@ -47,15 +47,18 @@ class Sentence:
                     entityLabel[index].append(pretty_str(label))
             except:
                 print('index :', index, ', entityLabel:', entityLabel)
+                print('self.wordList :', self.wordList)
                 print('assignEntityLabel index error')
+                print('entityJson :', entityJson)
 
         for entityJson in entitiesJsonList:
             start = entityJson["start"]
             end = entityJson["end"]
             etype = entityJson["entity-type"].split(":")[0]
-            assignEntityLabel(start, "B-" + etype)
+            # print('entityJson :', entityJson)
+            assignEntityLabel(start, "B-" + etype, entityJson)
             for i in range(start + 1, end):
-                assignEntityLabel(i, "I-" + etype)
+                assignEntityLabel(i, "I-" + etype, entityJson)
 
         return entityLabel
 
