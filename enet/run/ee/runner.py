@@ -17,7 +17,8 @@ from enet.testing import EDTester
 from enet.training import train
 from enet.util import log
 
-import sys; print('Python %s on %s' % (sys.version, sys.platform))
+import sys;
+print('Python %s on %s' % (sys.version, sys.platform))
 sys.path.extend(['/Users/seungwon/Desktop/projects/EMNLP2018-JMEE'])
 
 class EERunner(object):
